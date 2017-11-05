@@ -26,4 +26,4 @@ app.post('/api/slack/command', async (req, res) => {
   res.json(result);
 });
 
-app.listen(8667);
+app.listen(10047);
