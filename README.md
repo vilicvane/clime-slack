@@ -18,10 +18,11 @@ You can use `SlackShim` with framework you like, in this example we are using `e
 import * as Path from 'path';
 
 import * as BodyParser from 'body-parser';
-import {CLI} from 'clime';
 import * as express from 'express';
 
-import {SlackShim} from '..';
+import {CLI} from 'clime';
+import {SlackShim} from 'clime-slack';
+
 
 let cli = new CLI('/', Path.join(__dirname, 'commands'));
 let shim = new SlackShim(cli /*, [token]*/);
@@ -50,8 +51,7 @@ It's basically the same writing a Slack slash commands as writing a normal Clime
 
 ```ts
 import {Command, command, param} from 'clime';
-
-import {SlackUser} from '../..';
+import {SlackUser} from 'clime-slack';
 
 @command({
   description: 'This is a command for printing a greeting message',
@@ -70,6 +70,8 @@ export default class extends Command {
 ```
 
 In the example above, we are using castable `SlackUser` provided by `clime-slack`. To make this valid, you will need to check the "Escape channels, users, and links sent to your app" settings in your Slack slash command configuration.
+
+This package also provides utilities like `SlackChannel` and `SlackCommandContext` for you.
 
 ## License
 

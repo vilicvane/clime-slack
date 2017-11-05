@@ -5,8 +5,9 @@ import 'source-map-support/register';
 import * as Path from 'path';
 
 import * as BodyParser from 'body-parser';
-import {CLI} from 'clime';
 import * as express from 'express';
+
+import {CLI} from 'clime';
 
 import {SlackShim} from '..';
 
