@@ -4,13 +4,13 @@
 
 [Clime](https://github.com/vilic/clime) is a command-line interface framework for TypeScript. The beauty of Clime is that its core is not coupled with standard IO streams, and it uses a shim to generate proper contents for the interface. And in this case, `clime-slack` provides shim and utilities for Slack slash commands.
 
-This (`clime-slack`) is more of a showcase project though it might actually be useful if you decide to write one Slack slash commands application with Clime.
+This (`clime-slack`) is more of a showcase project though it might actually be useful if you decide to write a Slack slash commands application with Clime.
 
 ## Usage
 
 ### Shim
 
-You can use `SlackShim` with framework you like, in this example we are using `express`.
+You can use `SlackShim` with a web framework you like, in this example we are using `express`.
 
 **src/main.ts**
 
@@ -45,7 +45,7 @@ app.listen(10047);
 
 ### Commands
 
-It's basically the same writing a Slack slash commands as writing a normal Clime command:
+It's basically the same writing a Slack slash command as writing a normal Clime command:
 
 **src/commands/demo.ts**
 
@@ -71,7 +71,7 @@ export default class extends Command {
 
 In the example above, we are using castable `SlackUser` provided by `clime-slack`. To make this valid, you will need to check the "Escape channels, users, and links sent to your app" settings in your Slack slash command configuration.
 
-This package also provides utilities like `SlackChannel` and `SlackCommandContext` for you.
+This package also provides utilities like `SlackChannel` and `SlackCommandContext` for your convenience.
 
 ## License
 
