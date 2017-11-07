@@ -6,7 +6,7 @@ import * as ShellWords from 'shellwords';
 import stripAnsi = require('strip-ansi');
 import through2 = require('through2');
 
-import {SlackCommandContext} from './slack';
+import {SlackCommandContext, isSlackCommandResponse} from './slack';
 
 export class SlackShim {
   constructor(public cli: CLI, public token?: string) {}
@@ -43,6 +43,8 @@ export class SlackShim {
             },
           ],
         };
+      } else if (isSlackCommandResponse(result)) {
+        return result;
       } else {
         return {
           attachments: [
