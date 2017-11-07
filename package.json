@@ -1,6 +1,6 @@
 {
   "name": "clime-slack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Slack shim and utilities for Clime.",
   "main": "bld/index.js",
   "types": "bld/index.d.ts",
