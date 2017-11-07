@@ -52,10 +52,16 @@ export class SlackCommandContext extends Context {
   response_url: string;
   trigger_id: string;
 
+  user: SlackUser;
+  channel: SlackChannel;
+
   constructor(options: ContextOptions, contextExtension: object) {
     super(options);
 
     Object.assign(this, contextExtension);
+
+    this.user = new SlackUser(this.user_id, this.user_name);
+    this.channel = new SlackChannel(this.channel_id, this.channel_name);
   }
 }
 // tslint:enable:variable-name
@@ -193,4 +199,14 @@ export interface SlackCommandResponse {
   username?: string;
   attachments?: SlackAttachment[];
   mrkdwn?: boolean;
+}
+
+export function isSlackCommandResponse(
+  object: any,
+): object is SlackCommandResponse {
+  return (
+    object &&
+    typeof object === 'object' &&
+    (typeof object.text === 'string' || Array.isArray(object.attachments))
+  );
 }
